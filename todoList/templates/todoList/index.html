@@ -52,9 +52,17 @@
 					</div>
 
 					<ul class="list-group t20">
-						<li class="list-group-item">Learn something new.</li>
-						<li class="list-group-item todo-completed">Buy a new journal</li>
-						<li class="list-group-item">Book a dentist appointment.</li>
+
+						{% for todolist in todo_items %}
+
+						{% if todolist.status %}
+						<li class="list-group-item todo-completed">{{todolist.task}}</li>
+						{% else %}
+						<a href="#"><li class="list-group-item">{{todolist.task}}</li></a>
+						{% endif %}
+
+						{% endfor %}
+
 					</ul>
 				</div>
 			</div>
